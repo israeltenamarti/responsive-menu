@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/************************************************************************/
+html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
+
+/* Variables */
+/*************/
+
+:root{
+	--padding-stnd: 10px; 
+	--header-height: 60px; 
+	--footer-height: 60px; 
+
+	--primary: #121f3d;
+	--white: #fff;
+	--gray: #2a324b;
+}
+
+/* Configuracion */
+/*****************/
+
+*, *::after, *::before{
+	margin:0;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+html, body {
+	background-color: white;
+	font-family: 'Segoe UI', 'Calibri', 'Verdana', 'Arial';
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1;
+	text-align: left;
+	scroll-behavior: smooth;
+	z-index: 1;
+	/*display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;*/
+}
+
+h1{
+	margin: 0;
+	padding: 0;
+	letter-spacing: 5px;
+	font-size: 1.5em;
+}
+
+header{
+	/*border: 1px solid red;*/
+	border-bottom: 1px solid #808080;
+	background-color: #CCCCCC;
+	height: var(--header-height);
+}
+
+.header-main{
+	background-color: #CCCCCC;
+}
+
+.main{
+	/*border: 1px solid blue;*/
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: calc(100vh - var(--header-height) - var(--footer-height));
+	width: 100%;
+	padding: 0 var(--padding-stnd) 0 var(--padding-stnd);
+}
+
+.main-footer {
+	background-color: white;
+	text-align: center;
+	height: var(--footer-height);
+	padding: 0 var(--padding-stnd) 0 var(--padding-stnd);
+}
+  
+.sombra {
+	-moz-box-shadow: 6px 6px 12px #808080;
+	-ms-box-shadow: 6px 6px 12px #808080;
+	-o-box-shadow: 6px 6px 12px #808080;
+	-webkit-box-shadow: 6px 6px 12px #808080;
+	background-color: #FFFFFF;
+	border: 0px solid #000000;
+	box-shadow: 6px 6px 12px #808080;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Menu Personalizado */
+.nav {
+	/* Linea tenue inferior */
+	border-bottom: 1px solid #000000;
+}
+
+.nav__checkbox {
+	/* Ocultamnos el check del menu */
+	display: none;	
+}
+
+.nav__toggle {
+	/* Situamos los iconos del menú a la derecha */
+	position: absolute;
+	cursor: pointer;
+	margin: 0 1rem;
+	right: 0;
+}
+
+.nav__toggle svg {
+	/* Ajustamos el tamaño de los SVG */
+	width: 1.5rem;
+	fill: var(--white);
+}
+
+.nav__toggle .close {
+	/* Por defecto ocultamos el botón de cerrar */ 
+	display: none;
+}
+
+.nav__toggle .close, .nav__toggle .menu {
+  margin-top: 1rem;
+}
+
+/* Estilo de elementos del menú */
+.nav__menu {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	margin: 1rem;
+}
+
+.nav__menu li {
+	/* Por defecto ocultamos los elementos */ 
+	display: none;
+	list-style-type: none;
+}
+
+.nav__menu li:first-child {
+	/* Mostramos el logo */
+	display: block;
+	margin-right: auto;
+}
+
+.nav__menu a {
+	color: inherit;
+	font-size: 1.1rem;
+	text-decoration: none;
+}
+
+.nav__menu a:hover {
+	font-weight: bold;
+}
+
+.menu__logo {
+	height: 30px;
+}
+  
+  .menu__logo img {
+	height: 100%;
+}
+
+/* Interacción del menú con el checkbox */
+#nav__checkbox:checked ~ ul.nav__menu li {
+	/* si el checkbox esta seleccionado, el elemento ul.nav__menu li que no es otra cosa que nuestra lista de ítems debe de tener su display a block. Todo esto se representa en el código siguiente. */
+	display: block;
+}
+
+#nav__checkbox:checked ~ label.nav__toggle .close {
+	/* De igual forma si está seleccionado, al icon que tiene la clase .close también le cambiamos su display a block, para que se muestre la X cuando los ítems se muestren. */
+	display: block;
+}
+
+#nav__checkbox:checked ~ label.nav__toggle .menu {
+	/* Y ya por último cambiamos el display del .menu a none para que solo se muestre el icono de X y se oculte el de hamburguesa. */
+	display: none;
+}
+
+/* Si la pantalla es mayor de 560 px, se oculta el menu responsive */ 
+@media only screen and (min-width: 560px) {
+	.nav__toggle {
+	  display: none;
+	}
+  
+	.nav__menu {
+	  flex-direction: row;
+	}
+  
+	.nav__menu li {
+	  display: block;
+	}
+}
